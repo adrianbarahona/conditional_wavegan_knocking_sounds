@@ -25,3 +25,7 @@ python train_cwavegan.py --run_folder=train --resume_training=0 --path_to_wavfil
 ```
 
 If you are using your own sounds please run ``` python train_cwavegan.py -h ``` to check what the different parameters do. You will probably want to change (at least) the architecture size and the sampling rate.
+
+##### Synthesising audio
+
+Once the model is trained, just use the trained generator. You can find an example on how to use it on the generation notebook.
