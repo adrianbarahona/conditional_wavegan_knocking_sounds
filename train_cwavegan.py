@@ -74,7 +74,7 @@ def traincwavegan(run_folder = 'train'
 #get the arguments from the command line
 parser = argparse.ArgumentParser(description="Implements conditional WaveGAN with class conditioning in Keras")
 
-parser.add_argument("--run_folder", help="Path to create the folder where the model will store the trained weights and synthesise audio.", default='train', type=str)
+parser.add_argument("--run_folder", help="Path to create the folder where the model will store the trained weights and synthesised audio.", default='train', type=str)
 parser.add_argument("--resume_training", help="Load weights and model to resume training. 0=False, 1=True", default=0, type=int)
 parser.add_argument("--path_to_wavfiles", help="Path to the root folder where the training data (wav files in their class folders) is located.", default='audio/', type=str)
 parser.add_argument("--batches", help="Number of batches.", default=50000, type=int)
@@ -88,7 +88,7 @@ parser.add_argument("--critic_learning_rate", help="Discriminator (critic) learn
 parser.add_argument("--generator_learning_rate", help="Generator learning rate.", default=0.0002, type=float)
 parser.add_argument("--z_size", help="Dimension of the latent vector Z", default=100, type=int)
 parser.add_argument("--use_batch_norm", help="Using batch normalisation. 0=False, 1=True", default=1, type=int)
-parser.add_argument("--phaseshuffle_samples", help="How many samples of phase shuffle.", default=0, type=int)
+parser.add_argument("--phaseshuffle_samples", help="How many samples of phase shuffle (0 = disabled)", default=0, type=int)
 parser.add_argument("--kernel_size", help="Kernel size.", default=25, type=int)
 #parse arguments
 args = parser.parse_args()
