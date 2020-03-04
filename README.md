@@ -14,7 +14,7 @@ Librosa
 
 We focused on knocking sound effects and recorded a data set to train the model. If you want to train your model on the knocking sound effects with emotion data set you can download it from [here](https://zenodo.org/record/3668503) and put it on an '/audio' subdirectory.
 
-If you want to use your own sounds, just place your .wav files (organised in folders for your labels) on an '/audio' subdirectory. If for instance you want to train the conditional waveGAN on footsteps on concrete and grass, put your sounds in '/audio/concrete' and 'audio/grass'.
+If you want to use your own sounds, just place your .wav files (organised in folders for your labels) on an '/audio' subdirectory. If for instance you want to train the conditional waveGAN on footsteps on concrete and grass, put your sounds in '/audio/concrete' and '/audio/grass'.
 
 ##### Training
 
