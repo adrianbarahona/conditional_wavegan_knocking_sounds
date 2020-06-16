@@ -16,7 +16,7 @@ If you want to use your own sounds, just place your .wav files (organised in fol
 
 ##### Training
 
-To train the model just call ``` train_cwavegan.py ```. You can see and edit the parameters/hyperparameters of the model directly in the python file. Depending on your dataset you will probably want to change (at least) the architecture size and the sampling rate.  Once you start training, you will find a date/time folder in the ```checkpoints``` directory. Inside you will find your saved model, a file with the list of the parameters used and a dictionary with the labels (for inference).
+To train the model just run ``` train_cwavegan.py ```. You can see and edit the parameters/hyperparameters of the model directly in the python file. Depending on your dataset you will probably want to change (at least) the architecture size and the sampling rate.  Once you start training, you will find a date/time folder in the ```checkpoints``` directory. Inside you will find your saved model, a file with the list of the parameters used and a dictionary with the labels (for inference).
 
 
 ##### Synthesising audio
