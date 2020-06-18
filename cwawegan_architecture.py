@@ -249,7 +249,7 @@ def discriminator(architecture_size='small',
             , kernel_size = 25
             , strides = 4
             , padding = 'same'
-            , name = 'critic_conv_4'
+            , name = 'discriminator_conv_4'
             )(x)
         x = LeakyReLU(alpha = 0.2)(x)
         
@@ -258,7 +258,7 @@ def discriminator(architecture_size='small',
             , kernel_size = 25
             , strides = 4
             , padding = 'same'
-            , name = 'critic_conv_5'
+            , name = 'discriminator_conv_5'
             )(x)
         x = LeakyReLU(alpha = 0.2)(x)
         x = Flatten()(x)
