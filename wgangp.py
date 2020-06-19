@@ -160,7 +160,7 @@ class WGANGP(keras.Model):
                 if override_saved_model == False:
                     self.generator.save(f'{checkpoints_path}/{batch}_batch_generator.h5')
                     self.discriminator.save(f'{checkpoints_path}/{batch}_batch_discriminator.h5')
-                    self.save_weights(f'{checkpoints_path}/{batch}_epoch_batch_weights.h5')
+                    self.save_weights(f'{checkpoints_path}/{batch}_batch_weights.h5')
                 else:
                     self.generator.save(f'{checkpoints_path}/generator.h5')
                     self.discriminator.save(f'{checkpoints_path}/discriminator.h5')
