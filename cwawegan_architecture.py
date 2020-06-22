@@ -7,8 +7,9 @@ from tensorflow import pad, maximum, random, int32
 #Label embeding using the method in https://machinelearningmastery.com/how-to-develop-a-conditional-generative-adversarial-network-from-scratch/
 
 #phase shuffle [directly from the original waveGAN implementation]
-def apply_phaseshuffle(x, rad, pad_type='reflect'):
-    
+def apply_phaseshuffle(args):
+  x, rad = args
+  pad_type = 'reflect'
   b, x_len, nch = x.get_shape().as_list()
   phase = random.uniform([], minval=-rad, maxval=rad + 1, dtype=int32)
   pad_l = maximum(phase, 0)
@@ -27,7 +28,7 @@ def Conv1DTranspose(input_tensor, filters, kernel_size, strides=2, padding='same
                     , name = '1DTConv', activation = 'relu'):
     x = Conv2DTranspose(filters=filters, kernel_size=(1, kernel_size), strides=(1, strides), padding=padding, 
                         name = name, activation = activation)(K.expand_dims(input_tensor, axis=1))
-    x = Lambda(lambda x: K.squeeze(x, axis=1))(x)
+    x = K.squeeze(x, axis=1)
     return x
 
 def generator(z_dim = 100,
@@ -175,7 +176,7 @@ def discriminator(architecture_size='small',
             
             x = LeakyReLU(alpha = 0.2)(x)
             if phaseshuffle_samples > 0:
-                x = Lambda(lambda x: apply_phaseshuffle(x, phaseshuffle_samples))(x)
+                x = Lambda(apply_phaseshuffle)([x, phaseshuffle_samples])
                 
         #layer 4, no phase shuffle
         x = Conv1D(
@@ -203,7 +204,7 @@ def discriminator(architecture_size='small',
                 
             x = LeakyReLU(alpha = 0.2)(x)
             if phaseshuffle_samples > 0:
-                x = Lambda(lambda x: apply_phaseshuffle(x, phaseshuffle_samples))(x)
+                x = Lambda(apply_phaseshuffle)([x, phaseshuffle_samples])
             
             
         x = Conv1D(
@@ -241,7 +242,7 @@ def discriminator(architecture_size='small',
                 )(x)
             x = LeakyReLU(alpha = 0.2)(x)
             if phaseshuffle_samples > 0:
-                x = Lambda(lambda x: apply_phaseshuffle(x, phaseshuffle_samples))(x)
+                x = Lambda(apply_phaseshuffle)([x, phaseshuffle_samples])
 
         #last 2 layers without phase shuffle
         x = Conv1D(
